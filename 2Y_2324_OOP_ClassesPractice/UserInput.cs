@@ -8,28 +8,26 @@ namespace _2Y_2324_OOP_ClassesPractice
 {
     internal class UserInput
     {
-        public int uInput()
+        public int GetuInput()
         {
-            return GetuInput();
-        }
+            string uInput = "";
+            int num = 0;
 
-        private int GetuInput()
-        {
             while (true)
             {
-                string temp = Console.ReadLine();
-                int num = 0;
-
-                int.TryParse(temp, out num);
-
-
-
-
-                if (num >= 0 || num <= 65535)
+                uInput = Console.ReadLine();
+                if(int.TryParse(uInput, out num))
                 {
-                    return num;
+                    if (num >= 0 && num <= 65535)
+                        break;
+                    else
+                        Console.WriteLine("Invalid. Try again.");
                 }
+                else
+                    Console.WriteLine("Invalid. Try again.");
             }
+
+            return num;
         }
     }
 }
